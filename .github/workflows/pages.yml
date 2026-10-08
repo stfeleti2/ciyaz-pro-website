@@ -1,0 +1,42 @@
+name: Publish Ciyaz Pro
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Verify static files and JavaScript syntax
+        run: |
+          test -f index.html
+          test -f events/index.html
+          test -f assets/wet-wild-art.svg
+          test -f vendor/codrops-liquid.js
+          node --check js/codrops-double-slideshow.js
+          node --check js/home-brand.js
+          node --check js/events.js
+          node --check js/liquid-init.js
+          node --check vendor/codrops-liquid.js
+          node -e "const fs=require('fs'); const e=fs.readFileSync('events/index.html','utf8'); for(const s of ['ONLINE SOLD OUT','LIMITED','NOVEMBER.'])if(!e.includes(s))throw Error('Missing content: '+s); console.log('Content smoke tests passed');"
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: Deploy site
+        id: deployment
+        uses: actions/deploy-pages@v4
