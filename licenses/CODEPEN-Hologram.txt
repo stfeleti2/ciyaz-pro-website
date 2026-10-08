@@ -1,0 +1,2 @@
+Holographic light animation adapted from original public CodePen by Simeydotme: https://codepen.io/simeydotme/pen/QWJqRvB
+Public CodePens are licensed under the MIT License; preserve original author attribution.
