@@ -16,4 +16,4 @@ const setCaption = () => {
 };
 new MutationObserver(setCaption).observe(document.querySelector(".slider--bg"),{attributes:true,subtree:true,attributeFilter:["class"]});
 window.addEventListener("load",setCaption);
-setTimeout(()=>document.body.classList.remove("loading"),6500);
+document.body.classList.toggle("slider-ready",Boolean(document.querySelector(".slider--bg .slider__item--current")));setTimeout(()=>document.body.classList.remove("loading"),1800);
