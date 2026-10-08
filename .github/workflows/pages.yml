@@ -31,6 +31,13 @@ jobs:
           node --check js/liquid-init.js
           node --check vendor/codrops-liquid.js
           node -e "const fs=require('fs'); const e=fs.readFileSync('events/index.html','utf8'); for(const s of ['ONLINE SOLD OUT','LIMITED','NOVEMBER.'])if(!e.includes(s))throw Error('Missing content: '+s); console.log('Content smoke tests passed');"
+      - name: Enable Pages on first publish (best effort)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if ! gh api "repos/${{ github.repository }}/pages" >/dev/null 2>&1; then
+            gh api --method POST "repos/${{ github.repository }}/pages" -f build_type=workflow || echo "Pages activation requires repository Settings → Pages → GitHub Actions"
+          fi
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload site artifact
