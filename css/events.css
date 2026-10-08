@@ -58,3 +58,31 @@ h1 span{display:inline-block}h1 em{font-family:Inter,sans-serif;font-size:.35em;
 .footer{display:flex;justify-content:space-between;gap:1rem;padding:2rem clamp(1.2rem,5vw,5rem);font-size:.7rem;letter-spacing:.14em;color:#a4b1cc}.footer a{color:var(--cyan)}
 @media(max-width:700px){.site-head{padding:1.2rem}.nav-meta{display:none}.event-hero__content{padding:7rem 1.2rem 5rem}h1{font-size:clamp(4.25rem,20vw,7.6rem);line-height:.8}h1 span{display:block}h1 em{font-size:.4em}.hero-kicker{font-size:.75rem;letter-spacing:.2em}.hero-bottom{flex-direction:column;font-size:.68rem;text-align:center}.section-intro h2{font-size:clamp(2.85rem,13vw,5rem)}.info-grid,.menu{grid-template-columns:1fr;gap:1rem}.menu{margin-top:5rem}.ticket-face{padding:1.15rem}.footer{flex-direction:column;text-align:center}.ticket-3d{width:min(355px,90vw)}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}html{scroll-behavior:auto}.november .reveal{opacity:1;transform:none;filter:none}}
+
+/* Codrops canvas: kept beneath event text, and disabled on smaller devices. */
+.water-scene{overflow:hidden;z-index:0}
+.water-scene canvas{position:absolute!important;display:block;pointer-events:none;z-index:1;max-width:none;opacity:.67;mix-blend-mode:screen}
+.water-scene__glimmer{z-index:2}
+.event-hero__content{z-index:5}
+.ticket-stage{--foil-x:50%;--foil-p:50%;--foil-o:.28}
+.ticket-3d{--tilt-x:0deg;--tilt-y:0deg;--turn:0deg}
+.ticket-3d__inner{transform:rotateY(calc(var(--turn) + var(--tilt-y))) rotateX(var(--tilt-x))}
+.ticket-3d[aria-pressed="true"]{--turn:180deg}
+.ticket-3d[aria-pressed="true"] .ticket-3d__inner{transform:rotateY(calc(var(--turn) + var(--tilt-y))) rotateX(var(--tilt-x))}
+.ticket-face{background-image:linear-gradient(115deg,rgba(8,25,72,.75),rgba(91,18,149,.7) 44%,rgba(0,100,163,.83) 78%,rgba(235,10,158,.52)),url('../assets/wet-wild-art.svg');background-size:cover;background-position:center}
+.ticket-face--back{background-image:linear-gradient(135deg,rgba(3,9,33,.94),rgba(54,14,90,.9)),url('../assets/wet-wild-art.svg')}
+.ticket-foil{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:var(--foil-o,.35);background:repeating-linear-gradient(-45deg,rgba(30,245,255,.3) 0%,rgba(190,47,255,.65) 12%,rgba(255,34,207,.4) 24%,rgba(18,227,255,.4) 36%,rgba(255,255,255,.07) 48%);background-size:180% 180%;background-position:var(--foil-x,50%) var(--foil-p,50%);mask-image:radial-gradient(circle at center,#000 35%,transparent 75%);-webkit-mask-image:radial-gradient(circle at center,#000 35%,transparent 75%);mix-blend-mode:screen}
+.ticket-face>*:not(.ticket-foil){position:relative;z-index:2}
+.ticket-face .ticket-foil{z-index:1}
+.ticket-3d:focus-visible{outline:3px solid var(--cyan);outline-offset:9px}
+.gate-contact{display:inline-block;color:#6af6fa;font-size:.72rem;font-weight:900;letter-spacing:.12em;margin-top:1rem;border-bottom:1px solid #6af6fa;padding-bottom:.3rem}
+.image-showcase{display:grid;grid-template-columns:1.65fr 1fr;gap:1rem;margin-top:5rem}
+.image-showcase figure{margin:0;position:relative;height:clamp(300px,39vw,560px);overflow:hidden;background:#131b3a}
+.image-showcase img{height:100%;width:100%;object-fit:cover;transition:transform .9s ease}
+.image-showcase figure:hover img{transform:scale(1.05)}
+.image-showcase figcaption{position:absolute;z-index:2;left:1.5rem;bottom:1.5rem;font-size:.7rem;font-weight:900;letter-spacing:.18em;text-shadow:0 2px 6px black}
+.image-showcase figure:after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(2,1,16,.75),transparent 65%)}
+.november .reveal--pink{background-image:linear-gradient(110deg,#ff3be6,#56ebff,#a24cff,#ff1fb8);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:novemberFoil 8s linear infinite}
+@keyframes novemberFoil{to{background-position:300% 0}}
+@media(max-width:720px){.water-scene canvas{display:none!important}.image-showcase{grid-template-columns:1fr}.image-showcase figure{height:320px}.image-showcase figure:last-child{height:190px}.ticket-3d__inner{animation-duration:8s}}
+@media(prefers-reduced-motion:reduce){.ticket-foil{opacity:.18!important}.november .reveal--pink{animation:none}}
