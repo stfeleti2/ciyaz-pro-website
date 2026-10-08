@@ -1,50 +1,66 @@
-# Ciyaz Pro — Brand & Events
+# CIYAZ PRO · WET & WILD
 
-Two static pages with editable HTML/CSS/JS:
+A static, source-editable art-directed website. No framework, account or checkout.
 
-- `/`: full-screen editorial slideshow based on **Codrops Double Slideshow — Demo 2**.
-- `/events/`: Wet & Wild event experience, with interactive ticket, online sold-out messaging, limited gate availability, event info, and November teaser.
+## Pages
 
-## Local preview
+- `/` — Ciyaz Pro editorial showcase (adapted **Codrops Double Slideshow Demo 2**), four chapters, one link to `/events/`.
+- `/events/` — liquid-inspired Wet & Wild landing, flipping holographic ticket, honest online sold-out / limited gate ticket message, date/venue, food menu, and November Part II reveal.
 
-Run a local static server from the project root:
+## Run it locally
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Open `http://localhost:8000` then `http://localhost:8000/events/`.
+Open http://localhost:8000 and http://localhost:8000/events/.
 
-No framework or build step is needed. Works on GitHub Pages with appropriate path configuration, Netlify or Cloudflare Pages.
+## Hosting
 
-## Source attribution
+A GitHub Pages workflow runs automatically after merges to `main`. If Pages is not enabled:
 
-- The slideshow HTML/CSS/JS is **adapted directly** from [Codrops Double Slideshow Demo 2](https://github.com/codrops/DoubleSlideshow) (MIT). Original implementation is in `css/codrops-base.css` and `js/codrops-double-slideshow.js`; licence in `licenses/CODROPS-DoubleSlideshow-MIT.txt`.
-- GSAP, Observer, Splitting and imagesLoaded are loaded via their distribution CDNs and retain their own licences.
-- Demo photography from Unsplash is **temporary** and must be replaced with approved Ciyaz Pro food, venue and event imagery. Do not ship demo imagery without confirming usage rights.
-- The event ticket is **an original first-pass implementation**. It is not yet a direct import of the Uiverse snippet.
-- Codrops Liquid Distortion (PixiJS) and the Uiverse ticket source are **planned integration steps**, not represented as already integrated. We will preserve their original licence notices when imported.
-- November currently uses a minimal IntersectionObserver reveal; the planned Codrops typography integration is not yet incorporated.
+1. Repository **Settings → Pages**.
+2. Under **Build and deployment**, select **GitHub Actions**.
+3. Rerun the Pages workflow from the Actions tab if needed.
 
-## Before launch (must verify)
+The first staging URL will normally be `https://stfeleti2.github.io/ciyaz-pro-website/`. This is only a prediction; use the Actions deployment URL once the workflow succeeds. Connecting the production domain `ciyapro.online` requires a separate DNS / Pages custom-domain configuration in the domain and repository settings.
 
-- Confirm the final event date/time, based on the latest approved announcement; current content follows the supplied poster (10 October 2026, 00:00–02:00).
-- Confirm gate ticket prices **at the entrance** before a guest pays. Current published status: *online sold out, limited tickets at gate*.
-- Confirm current menu and prices — the website explicitly labels the menu as draft.
-- Replace demo stock backgrounds with owned/licensed poster, venue and kitchen photography.
-- Verify all visible event claims, mobile performance, keyboard interaction and accessibility.
-- Review hosting and custom domain: the project brief specifies `ciyapro.online`.
+## Original source and credits
 
-## File map
+- [Codrops Double Slideshow](https://github.com/codrops/DoubleSlideshow): original Demo 2 JS/CSS ported into `js/codrops-double-slideshow.js` and `css/codrops-base.css`. MIT attribution: `licenses/CODROPS-DoubleSlideshow-MIT.txt`.
+- [Codrops Liquid Distortion](https://github.com/codrops/LiquidDistortion), by Yannis Yannakopoulos: original `main.js` adapted only to mount inside the event hero; vendored PixiJS and TweenMax. Source/terms: `licenses/CODROPS-LiquidDistortion.txt`. WebGL loads only on capable desktops. Touch/mobile uses a lighter CSS fallback.
+- [Simeydotme holographic ticket CodePen](https://codepen.io/simeydotme/pen/QWJqRvB): animated highlight/foil variables and timelines adapted into `js/events.js` and `css/events.css`. Attribution: `licenses/CODEPEN-Hologram.txt`.
+- [Marcelo Dolza Uiverse Ticket](https://uiverse.io/marcelodolza/fluffy-panda-74) guided the aesthetic, but the exact HTML/CSS was not retrievable in this environment. The ticket markup is therefore original, not falsely presented as a direct copy.
+- Original Ciyaz Pro vector artwork: `assets/wet-wild-art.svg`. It is a recreation of the neon poster styling, not an exact bitmap of the approved poster.
+
+## Public messaging
+
+Online tickets are sold out. Some tickets may be available at the entrance, subject to gate capacity. The public page does not show internal allocation thresholds or an unverified admission price. Visitors can use the WhatsApp enquiry link to ask the current gate price before travelling.
+
+## Final content verification
+
+- The displayed event date/time is based on the supplied poster: **Saturday 10 October 2026, 00:00–02:00**, 31 Antelope Avenue, Leondale.
+- The food list is adapted from earlier Ciyaz Pro menu plans; the page says prices may need confirmation at the venue.
+- Current stock photos from Unsplash remain temporary; replace with cleared event/venue/food images before a full public marketing launch.
+- Upload the approved original poster bitmap if pixel-perfect representation is required; a brand-inspired editable SVG is provided meanwhile.
+- Performance: WebGL is desktop-only; JS fallback preserves the event content; reduced motion and keyboard interaction are supported.
+
+## Key files
 
 ```
 index.html
 events/index.html
+assets/wet-wild-art.svg
 css/codrops-base.css
 css/site.css
 css/events.css
 js/codrops-double-slideshow.js
 js/home-brand.js
 js/events.js
-licenses/CODROPS-DoubleSlideshow-MIT.txt
+js/liquid-init.js
+vendor/codrops-liquid.js
+vendor/pixi.min.js
+vendor/TweenMax.min.js
+licenses/
+.github/workflows/pages.yml
 ```
