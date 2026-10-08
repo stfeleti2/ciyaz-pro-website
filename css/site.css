@@ -43,3 +43,11 @@ body.demo-2 .type__item:nth-child(4){background:linear-gradient(95deg,#fff,#00f4
   .swipe-hint{bottom:1rem;white-space:nowrap}
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* Keep the showcase visible when optional motion dependencies cannot load. */
+body:not(.slider-ready) .slider--bg .slider__item:first-child,
+body:not(.slider-ready) .slider--fg .slider__item:first-child,
+body:not(.slider-ready) .type__item:first-child{opacity:1}
+body:not(.slider-ready) .slider--bg .slider__item:first-child,
+body:not(.slider-ready) .slider--fg .slider__item:first-child{z-index:2}
+@media(prefers-reduced-motion:reduce){body:not(.slider-ready) .slider__item:first-child{opacity:1}}
