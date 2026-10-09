@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:wght@600;700;800;900&family=Fugaz+One&family=Inter:wght@400;500;600;700;800&display=swap');
 :root{--night:#050719;--cyan:#00eaf2;--pink:#ff00c8;--violet:#8b2cff;--ink:#eaf2ff}
 *,*:before,*:after{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -9,7 +9,7 @@ a{color:inherit;text-decoration:none}button{font:inherit}a:focus-visible,button:
 .logo{font-size:1.25rem;font-weight:900;letter-spacing:-.055em}.logo span{color:var(--cyan);margin-left:.12em}.nav-meta,.text-link,.eyebrow,.info-label{font-size:.7rem;letter-spacing:.2em;font-weight:800}.nav-meta{opacity:.55}.text-link{border-bottom:1px solid var(--cyan);padding-bottom:.25rem}
 .event-hero{min-height:100svh;display:grid;place-items:center;position:relative;overflow:hidden;background:#06172d}
 .water-scene,.water-scene__image,.water-scene__glimmer{position:absolute;inset:0;pointer-events:none}
-.water-scene__image{background:linear-gradient(90deg,rgba(3,1,29,.8),rgba(5,2,30,.25) 65%,rgba(3,1,29,.68)),url('https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?auto=format&fit=crop&w=1800&q=85') center/cover;filter:saturate(1.7) contrast(1.12);transform:scale(1.05);transition:transform .5s}
+.water-scene__image{background:linear-gradient(90deg,rgba(3,1,29,.8),rgba(5,2,30,.25) 65%,rgba(3,1,29,.68)),url('../assets/pool.avif') center/cover,url('https://tympanus.net/Development/LiquidDistortion/img/1.jpg') center/cover;filter:saturate(1.7) contrast(1.12);transform:scale(1.05);transition:transform .5s}
 .water-scene__glimmer{background:radial-gradient(circle at var(--mx,60%) var(--my,60%),rgba(0,234,242,.27),transparent 32%),linear-gradient(120deg,rgba(255,0,200,.27),transparent 40%,rgba(0,234,242,.23));mix-blend-mode:screen;transition:background-position .3s}
 .event-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#050719 1%,transparent 38%,rgba(0,0,12,.25))}
 .event-hero__content{position:relative;z-index:2;text-align:center;width:min(100%,1500px);padding:9rem 1rem 7rem}
@@ -36,7 +36,7 @@ h1 span{display:inline-block}h1 em{font-family:Inter,sans-serif;font-size:.35em;
 .ticket-face:after{content:"";inset:8px;position:absolute;border:1px solid rgba(255,255,255,.38);border-radius:12px;pointer-events:none}
 .ticket-face--back{transform:rotateY(180deg);justify-content:space-around;text-align:center;background:linear-gradient(125deg,#051a36,#3e1567 55%,#062e50)}
 .ticket-topline,.ticket-sub,.ticket-footer{font-size:.64rem;letter-spacing:.2em;font-weight:900;text-align:center}
-.ticket-title{font:900 clamp(3.7rem,11vw,6.4rem)/.9 'Barlow Condensed',Impact,sans-serif;letter-spacing:-.03em;text-align:center;text-shadow:0 0 24px rgba(255,255,255,.5)}
+.ticket-title{font:900 clamp(2.7rem,8vw,4.4rem)/1 'Fugaz One','Barlow Condensed',Impact,sans-serif;letter-spacing:-.03em;text-align:center;text-shadow:0 0 24px rgba(255,255,255,.5)}
 .ticket-title i{color:var(--pink);font-style:normal}.ticket-sub{color:#ffd4ff}
 .ticket-decoration{font-size:2rem;color:#a6ffff}.ticket-stamp{font:900 2rem/.95 'Barlow Condensed',Impact,sans-serif;color:white;border:4px solid white;transform:rotate(-11deg);padding:.5rem 1.5rem;text-shadow:0 0 12px #ff00c8;box-shadow:0 0 26px rgba(255,0,200,.5);letter-spacing:.09em}
 .ticket-cutline{width:100%;border-bottom:2px dashed rgba(255,255,255,.6)}
@@ -69,7 +69,7 @@ h1 span{display:inline-block}h1 em{font-family:Inter,sans-serif;font-size:.35em;
 .ticket-3d__inner{transform:rotateY(calc(var(--turn) + var(--tilt-y))) rotateX(var(--tilt-x))}
 .ticket-3d[aria-pressed="true"]{--turn:180deg}
 .ticket-3d[aria-pressed="true"] .ticket-3d__inner{transform:rotateY(calc(var(--turn) + var(--tilt-y))) rotateX(var(--tilt-x))}
-.ticket-face{background-image:linear-gradient(115deg,rgba(8,25,72,.75),rgba(91,18,149,.7) 44%,rgba(0,100,163,.83) 78%,rgba(235,10,158,.52)),url('../assets/wet-wild-art.svg');background-size:cover;background-position:center}
+.ticket-face{background-image:linear-gradient(115deg,rgba(8,25,72,.75),rgba(91,18,149,.7) 44%,rgba(0,100,163,.83) 78%,rgba(235,10,158,.52)),url('../assets/poster.avif'),url('../assets/wet-wild-art.svg');background-size:cover;background-position:center}
 .ticket-face--back{background-image:linear-gradient(135deg,rgba(3,9,33,.94),rgba(54,14,90,.9)),url('../assets/wet-wild-art.svg')}
 .ticket-foil{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:var(--foil-o,.35);background:repeating-linear-gradient(-45deg,rgba(30,245,255,.3) 0%,rgba(190,47,255,.65) 12%,rgba(255,34,207,.4) 24%,rgba(18,227,255,.4) 36%,rgba(255,255,255,.07) 48%);background-size:180% 180%;background-position:var(--foil-x,50%) var(--foil-p,50%);mask-image:radial-gradient(circle at center,#000 35%,transparent 75%);-webkit-mask-image:radial-gradient(circle at center,#000 35%,transparent 75%);mix-blend-mode:screen}
 .ticket-face>*:not(.ticket-foil){position:relative;z-index:2}
@@ -86,3 +86,34 @@ h1 span{display:inline-block}h1 em{font-family:Inter,sans-serif;font-size:.35em;
 @keyframes novemberFoil{to{background-position:300% 0}}
 @media(max-width:720px){.water-scene canvas{display:none!important}.image-showcase{grid-template-columns:1fr}.image-showcase figure{height:320px}.image-showcase figure:last-child{height:190px}.ticket-3d__inner{animation-duration:8s}}
 @media(prefers-reduced-motion:reduce){.ticket-foil{opacity:.18!important}.november .reveal--pink{animation:none}}
+
+/* Ciyaz Pro poster typography and actual venue imagery */
+.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.poster-art-title{
+ width:min(90vw,980px);aspect-ratio:1.42;margin:0 auto;
+ background-image:url('../assets/wet-wild-title.avif'),url('../assets/wet-wild-art.svg');
+ background-position:center,center 25%;background-repeat:no-repeat,no-repeat;
+ background-size:contain,cover;
+ mask-image:radial-gradient(ellipse 76% 74% at center,#000 54%,transparent 99%);
+ -webkit-mask-image:radial-gradient(ellipse 76% 74% at center,#000 54%,transparent 99%);
+ filter:drop-shadow(0 0 38px rgba(0,234,242,.24)) drop-shadow(0 0 55px rgba(255,0,200,.24));
+}
+.hero-kicker{font-family:'Archivo Black','Barlow Condensed',sans-serif;font-style:italic;text-shadow:0 0 28px #ff00c8;letter-spacing:.13em}
+.event-hero__content>.eyebrow,.nav-meta,.text-link{font-family:'Archivo Black','Arial Black',sans-serif;letter-spacing:.13em}
+.section-intro h2,.menu h2,.november h2,.info-card h3{font-family:'Barlow Condensed','Archivo Black',sans-serif;font-style:italic;letter-spacing:-.02em}
+.ticket-title{font-family:'Fugaz One','Barlow Condensed',sans-serif;letter-spacing:-.07em;font-size:clamp(2.6rem,8vw,4.7rem);line-height:1.03;paint-order:stroke;-webkit-text-stroke:1px rgba(179,241,255,.9);text-shadow:0 0 9px rgba(0,234,242,.8),0 0 25px rgba(255,0,200,.6)}
+.ticket-face--front{background-image:linear-gradient(135deg,rgba(10,26,67,.63),rgba(51,5,83,.73) 45%,rgba(5,39,77,.76)),url('../assets/poster.avif'),url('../assets/wet-wild-art.svg');background-size:cover;background-position:center}
+.ticket-face--back{background-image:linear-gradient(125deg,rgba(4,11,44,.91),rgba(39,12,78,.84)),url('../assets/pool.avif'),url('../assets/wet-wild-art.svg');background-size:cover;background-position:center}
+.image-showcase{grid-template-columns:1.1fr 1fr;gap:1.1rem;margin-top:5rem}
+.image-showcase figure{height:clamp(300px,42vw,550px);border:1px solid rgba(0,234,242,.21)}
+.image-showcase figure img{object-position:center}
+.image-showcase__poster img{object-position:center top}
+@media(max-width:720px){
+ .poster-art-title{width:100%;aspect-ratio:1.32}
+ .event-hero__content{padding-top:7rem}
+ .hero-kicker{font-size:.72rem;letter-spacing:.06em}
+ .image-showcase{grid-template-columns:1fr}
+ .image-showcase figure{height:300px}
+ .image-showcase__poster{height:490px!important}
+ .image-showcase__poster img{object-fit:contain;background:#0a0820}
+}
