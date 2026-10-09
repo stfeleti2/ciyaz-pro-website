@@ -25,6 +25,32 @@ A GitHub Pages workflow runs automatically after merges to `main`. If Pages is n
 
 The first staging URL will normally be `https://stfeleti2.github.io/ciyaz-pro-website/`. This is only a prediction; use the Actions deployment URL once the workflow succeeds. Connecting the production domain `ciyapro.online` requires a separate DNS / Pages custom-domain configuration in the domain and repository settings.
 
+
+## Original Ciyaz Pro artwork and fonts
+
+This revision replaces unrelated Unsplash images in the slideshow and event gallery
+with the user's original Wet & Wild poster and actual photos of the Leondale venue.
+
+The original raster art is delivered separately in `ciyaz-original-photos.zip`
+and MUST be uploaded to the **root of the repository** on `main`.
+The Pages deployment automatically extracts:
+
+- `assets/poster.avif` — exact uploaded original event poster, compressed for web
+- `assets/wet-wild-title.avif` — actual cyan/magenta poster lettering crop
+- `assets/pool.avif` — actual Leondale swimming pool
+- `assets/gathering.avif` — real outdoor event scene
+- `assets/patio.avif` — actual poolside seating/courtyard
+
+Until that zip has been uploaded, the existing vector fallback remains visible.
+This limitation is intentional, to avoid broken images in the deployed website.
+Fonts use Fugaz One and Archivo Black with Barlow Condensed and Inter;
+the exact event title lettering is shown as an image crop, not approximated by a font.
+
+The liquid background now uses the three **original Codrops Demo 1 photographs**
+from `codrops/LiquidDistortion/img/1.jpg`, `2.jpg`, and `3.jpg`,
+along with the original water displacement texture and physics.
+Mobile gets a lightweight CSS effect instead of a WebGL canvas.
+
 ## Original source and credits
 
 - [Codrops Double Slideshow](https://github.com/codrops/DoubleSlideshow): original Demo 2 JS/CSS ported into `js/codrops-double-slideshow.js` and `css/codrops-base.css`. MIT attribution: `licenses/CODROPS-DoubleSlideshow-MIT.txt`.
@@ -41,7 +67,7 @@ Online tickets are sold out. Some tickets may be available at the entrance, subj
 
 - The displayed event date/time is based on the supplied poster: **Saturday 10 October 2026, 00:00–02:00**, 31 Antelope Avenue, Leondale.
 - The food list is adapted from earlier Ciyaz Pro menu plans; the page says prices may need confirmation at the venue.
-- Current stock photos from Unsplash remain temporary; replace with cleared event/venue/food images before a full public marketing launch.
+- User-provided original poster and venue photos are included in the separately delivered zip archive; upload that archive once to display them in Pages.
 - Upload the approved original poster bitmap if pixel-perfect representation is required; a brand-inspired editable SVG is provided meanwhile.
 - Performance: WebGL is desktop-only; JS fallback preserves the event content; reduced motion and keyboard interaction are supported.
 

@@ -19,6 +19,19 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Prepare supplied Ciyaz Pro photography
+        run: |
+          if [ -f ciyaz-original-photos.zip ]; then
+            unzip -oq ciyaz-original-photos.zip -d .
+            test -f assets/poster.avif
+            test -f assets/wet-wild-title.avif
+            test -f assets/pool.avif
+            test -f assets/patio.avif
+            test -f assets/gathering.avif
+            echo "Original supplied brand images unpacked."
+          else
+            echo "Photos ZIP not yet uploaded; site will use the existing fallback artwork."
+          fi
       - name: Verify static files and JavaScript syntax
         run: |
           test -f index.html
