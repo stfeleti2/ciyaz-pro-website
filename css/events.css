@@ -117,3 +117,15 @@ h1 span{display:inline-block}h1 em{font-family:Inter,sans-serif;font-size:.35em;
  .image-showcase__poster{height:490px!important}
  .image-showcase__poster img{object-fit:contain;background:#0a0820}
 }
+
+/* Enable Codrops pointer interaction on desktop without capturing the page UI. */
+@media(min-width:900px) and (pointer:fine){
+ .water-scene canvas{pointer-events:auto!important}
+ .water-scene__image,.water-scene__glimmer{pointer-events:none}
+}
+/* On touch devices, light and water shift gently instead of allocating a WebGL canvas. */
+@media(max-width:899px),(pointer:coarse){
+ .water-scene__glimmer{animation:ciyaz-water-glow 12s ease-in-out infinite alternate}
+ @keyframes ciyaz-water-glow{0%{opacity:.6;transform:scale(1)}100%{opacity:.95;transform:scale(1.08) translateX(3%)}}
+}
+@media(prefers-reduced-motion:reduce){.water-scene__glimmer{animation:none!important}}
